@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animation Example</title>
+  <style>
+    @keyframes moveRightLeft {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(300px); /* Move to the right */
+      }
+      100% {
+        transform: translateX(0); /* Return to original position */
+      }
+    }
+
+    .my-element {
+      width: 200px;
+      height: 200px;
+      background:linear-gradient(greenyellow , cyan , yellow) ;
+      border-radius: 50%;
+      animation: moveRightLeft 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="my-element"></div>
+
+</body>
+</html>
