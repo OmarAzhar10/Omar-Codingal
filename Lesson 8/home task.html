@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            height: 100vh;
+            background:linear-gradient(black, grey);
+            color: goldenrod;
+            
+        }
+
+        h2 {
+
+            font-size: 50px;
+            text-align: center;
+            text-transform: capitalize;
+            font-family: cursive;
+            text-decoration: overline underline;
+            text-shadow: 10px 10px 30px goldenrod, 0px 0px 0px goldenrod, 0px 0px 0px goldenrod 
+        }
+        
+         
+
+    </style>
+    <style>
+        body {
+          margin: 0;
+          display: flex; 
+          justify-content: center;
+          align-items: center;
+        }
+    
+       
+        .spin {
+          width: 200px;
+          height: 200px;
+          background:linear-gradient(purple
+           , pink , blue) ;
+          border-radius: 50%;
+          animation: spin 2s linear infinite;
+        }
+    
+        
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+</head>
+
+<body>
+    <div>
+        <h2>My Website</h2>
+       
+    </div>
+    <div class="spin"></div>
+</body>
+
+</html>
