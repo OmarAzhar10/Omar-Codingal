@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .navbar {
+      background-color: #343a40;
+    }
+    .navbar-brand {
+      color: #fff;
+    }
+    .nav-link {
+      color: #fff !important;
+    }
+    .nav-link:hover {
+      color: #ff9800 !important;
+    }
+    .hero-section {
+      background: url('https://images.unsplash.com/photo-1603983732011-caaf6ca67a3e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtaW5nJTIwcGN8ZW58MHx8MHx8fDA%3D') no-repeat center center;
+      background-size: cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .hero-section h1 {
+      font-size: 4em;
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .services-icons {
+      font-size: 40px;
+      color: #ff9800;
+    }
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="home" class="hero-section">
+    <div class="text-center">
+      <h1>Welcome to My Portfolio</h1>
+      <p>Discover my work and skills</p>
+    </div>
+  </section>
+
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>About Me</h2>
+          <p>I am a passionate web developer with a focus on creating interactive and dynamic websites. With experience in both front-end and back-end development, I love bringing ideas to life.</p>
+        </div>
+        <div class="col-md-6">
+          <img src="https://avatars.githubusercontent.com/u/80812344?v=4" alt="About Me" class="about-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="services" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">My Services</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div class="services-icons">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <h4>Web Development</h4>
+          <p>Build responsive and modern websites tailored to your needs.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="services-icons">
+            <i class="bi bi-laptop"></i>
+          </div>
+          <h4>UI/UX Design</h4>
+          <p>Creating user-friendly and aesthetically pleasing interfaces.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="services-icons">
+            <i class="bi bi-people"></i>
+          </div>
+          <h4>Consulting</h4>
+          <p>Providing expert advice to help your project succeed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Me</h2>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Your Name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Your Email">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+<center>
+    <footer>
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+      </footer>
+
+</center>
+  
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+</html>
