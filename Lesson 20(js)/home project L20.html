@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Numbers and Date</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .output {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Numbers and Current Date</h1>
+    
+    <div id="current-date" class="output"></div>
+    <div id="random-number" class="output"></div>
+    <div id="rounded-random-number" class="output"></div>
+    
+    <script>
+        // Display the current date
+        const currentDate = new Date();
+        document.getElementById('current-date').textContent = "Current Date: " + currentDate.toLocaleString();
+
+        // Generate and display a random number
+        const randomNumber = Math.random();
+        document.getElementById('random-number').textContent = "Random Number: " + randomNumber;
+
+        // Round a random number and display it
+        const roundedRandomNumber = Math.round(randomNumber * 100);  // Multiply to get a bigger number
+        document.getElementById('rounded-random-number').textContent = "Rounded Random Number: " + roundedRandomNumber;
+
+        // Loop to print 5 random rounded numbers
+        for (let i = 0; i < 5; i++) {
+            const loopRandomNumber = Math.round(Math.random() * 100);  // Random rounded number between 0 and 100
+            const div = document.createElement('div');
+            div.textContent = `Loop Random Number ${i + 1}: ${loopRandomNumber}`;
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>
