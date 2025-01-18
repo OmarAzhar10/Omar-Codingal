@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
+      background-color: cyan;
       margin: 0;
     }
 
@@ -42,7 +42,7 @@
     }
 
     .calculator button {
-      background-color: #f0f0f0;
+      background-color: white;
       transition: background-color 0.3s;
     }
 
@@ -55,7 +55,7 @@
     }
 
     .calculator .operator {
-      background-color: #ff9800;
+      background-color: black;
       color: white;
     }
 
@@ -68,6 +68,11 @@
       background-color: #f44336;
       color: white;
     }
+
+    .calculator .backspace {
+      background-color: #ffa500;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -75,10 +80,16 @@
   <div class="calculator">
     <input type="text" id="display" disabled />
     <div>
+      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="backspace()" class="backspace">←</button>
+      <button onclick="appendToDisplay('%')" class="operator">%</button>
+      <button onclick="appendToDisplay('/')" class="operator">/</button>
+    </div>
+    <div>
       <button onclick="appendToDisplay('7')">7</button>
       <button onclick="appendToDisplay('8')">8</button>
       <button onclick="appendToDisplay('9')">9</button>
-      <button onclick="appendToDisplay('+')" class="operator">+</button>
+      <button onclick="appendToDisplay('*')" class="operator">*</button>
     </div>
     <div>
       <button onclick="appendToDisplay('4')">4</button>
@@ -90,40 +101,45 @@
       <button onclick="appendToDisplay('1')">1</button>
       <button onclick="appendToDisplay('2')">2</button>
       <button onclick="appendToDisplay('3')">3</button>
-      <button onclick="appendToDisplay('*')" class="operator">*</button>
+      <button onclick="appendToDisplay('+')" class="operator">+</button>
     </div>
     <div>
       <button onclick="appendToDisplay('0')">0</button>
-      <button onclick="clearDisplay()" class="clear">C</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button onclick="appendToDisplay('What is wrong')">?</button>
       <button onclick="calculateResult()" class="equal">=</button>
-      <button onclick="appendToDisplay('/')" class="operator">/</button>
     </div>
   </div>
 
   <script>
-   
     let display = document.getElementById("display");
 
-    
+    // Function to append numbers and operators to the display
     function appendToDisplay(value) {
       display.value += value;
     }
 
-    
+    // Function to clear the display
     function clearDisplay() {
       display.value = "";
     }
 
-    
+    // Function to remove the last character (backspace)
+    function backspace() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    // Function to calculate the result
     function calculateResult() {
       try {
-        
-        display.value = eval(display.value);
+        display.value = eval(display.value); // Use eval for calculation
       } catch (error) {
-        display.value = "Error";
+        display.value = "Error"; // Show error if the expression is invalid
       }
     }
-  </script>
+  </script><br>
+  
+
 
 </body>
 </html>

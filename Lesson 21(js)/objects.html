@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Book Details</title>
+</head>
+<body>
+
+    <h1>Harry Potter Book Details</h1>
+
+    <div id="bookDetails"></div>
+
+    <script>
+        
+        let harryPotterBook = {
+            title: "Harry Potter and the Sorcerer's Stone",
+            author: "J.K. Rowling",
+            year: 1997,
+            genre: "Fantasy",
+            pages: 309
+        };
+
+        
+        function displayBookDetails(bookObj) {
+           
+            let bookDetailsDiv = document.getElementById("bookDetails");
+
+            
+            bookDetailsDiv.innerHTML = `
+                <p><strong>Title:</strong> ${bookObj.title}</p>
+                <p><strong>Author:</strong> ${bookObj.author}</p>
+                <p><strong>Year:</strong> ${bookObj.year}</p>
+                <p><strong>Genre:</strong> ${bookObj.genre}</p>
+                <p><strong>Pages:</strong> ${bookObj.pages}</p>
+            `;
+        }
+
+   
+        displayBookDetails(harryPotterBook);
+    </script>
+
+</body>
+</html>

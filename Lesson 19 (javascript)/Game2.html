@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Collection Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+        #score {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coin Collection Game</h1>
+    <p>Use arrow keys to move and collect the coins!</p>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+    <p id="score">Score: 0</p>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const playerSize = 20;
+        const coinSize = 10;
+        let player = { x: canvas.width / 2, y: canvas.height / 2, score: 0 };
+        let coins = [];
+
+        function createCoins() {
+            for (let i = 0; i < 10; i++) {
+                coins.push({
+                    x: Math.random() * (canvas.width - coinSize),
+                    y: Math.random() * (canvas.height - coinSize),
+                });
+            }
+        }
+
+        function drawPlayer() {
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(player.x, player.y, playerSize, playerSize);
+        }
+
+        function drawCoins() {
+            ctx.fillStyle = 'gold';
+            coins.forEach(coin => {
+                ctx.beginPath();
+                ctx.arc(coin.x, coin.y, coinSize, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = `Score: ${player.score}`;
+        }
+
+        function detectCollision() {
+            coins = coins.filter(coin => {
+                const distX = Math.abs(player.x + playerSize / 2 - coin.x);
+                const distY = Math.abs(player.y + playerSize / 2 - coin.y);
+                const distance = Math.sqrt(distX ** 2 + distY ** 2);
+
+                if (distance < playerSize / 2 + coinSize) {
+                    player.score++;
+                    updateScore();
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawPlayer();
+            drawCoins();
+        }
+
+        function gameLoop() {
+            detectCollision();
+            drawGame();
+            if (coins.length === 0) {
+                alert(`Congratulations! You collected all coins with a score of ${player.score}.`);
+                createCoins();
+                player.score = 0;
+                updateScore();
+            }
+            requestAnimationFrame(gameLoop);
+        }
+
+        function handleKeyPress(event) {
+            const speed = 5;
+            switch (event.key) {
+                case 'ArrowUp':
+                    if (player.y > 0) player.y -= speed;
+                    break;
+                case 'ArrowDown':
+                    if (player.y < canvas.height - playerSize) player.y += speed;
+                    break;
+                case 'ArrowLeft':
+                    if (player.x > 0) player.x -= speed;
+                    break;
+                case 'ArrowRight':
+                    if (player.x < canvas.width - playerSize) player.x += speed;
+                    break;
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyPress);
+        createCoins();
+        updateScore();
+        gameLoop();
+    </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheezious - A Brand Full of Love</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: white;
+            color: #333;
+            padding-top: 20px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        /* Logo on the left */
+        header .logo {
+            height: 60px; /* Adjust the size of your logo */
+            border-radius: 50%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        /* Adding the underline effect */
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffcc00;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Cart and Login buttons */
+        .cart-login-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-button,
+        .login-button {
+            color: white;
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-button {
+            position: relative;
+        }
+
+        /* Cart item count circle */
+        .cart-item-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        /* Jumbotron (Slider) Section with Smaller Height */
+        .slider-container {
+            width: 100%;
+            height: 600px; /* Smaller height */
+            overflow: hidden;
+            margin-top: 70px;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 300px; /* Smaller height */
+            object-fit: cover;
+        }
+
+        /* Menu, Blog, Offers sections */
+        section {
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        section p {
+            font-size: 18px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 280px;
+        }
+        .card {
+            width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: #e6b800;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        form input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        form button:hover {
+            background-color: #e6b800;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slider .slide {
+            position: relative;
+            width: 100%;
+        }
+
+        .view-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .view-link:hover {
+            background-color: rgba(255, 204, 0, 0.9);
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Logo Image (Replace with your actual logo) -->
+        <img src="https://files.oaiusercontent.com/file-2Bify27szX2GGpn1i8dVar?se=2025-01-12T06%3A58%3A51Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D54475c8b-c510-4289-b5aa-e2a46eaee469.webp&sig=vV8pxznOb1LIrT0NGpR88rFNKb/10M4dP0QeyYKX1NY%3D" class="logo">
+        
+        <nav>
+            <ul>
+                <li><a href="#menu">Explore Menu</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#offers">Special Offers & News</a></li>
+            </ul>
+        </nav>
+
+        <!-- Cart and Login buttons -->
+        <div class="cart-login-buttons">
+            <button class="cart-button" onclick="addToCart()">Cart <span class="cart-item-count" id="cart-count">0</span></button>
+            <button class="login-button">Login</button>
+        </div>
+    </header>
+
+    <!-- Jumbotron (Automatic Image Slider) Section with Smaller Height -->
+    <div class="slider-container">
+        <div class="slider">
+            <img src="https://admin.broadwaypizza.com.pk/images/banner/web-bannernew.jpg" alt="Image 1">
+            <img src="https://admin.broadwaypizza.com.pk/images/banner/website-banner.jpg" alt="Image 2">
+            <img src="https://cheezious.com/_next/image?url=http%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1725625729436-Cheezious%20New%20Web%20Banner%2002.jpg&w=1920&q=75" alt="Image 3">
+            <img src="https://cheezious.com/_next/image?url=http%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1725625656600-Cheezious%20New%20Web%20Banner%2001.jpg&w=1920&q=75" alt="Image 4">
+            <img src="https://cheezious.com/_next/image?url=http%3A%2F%2Fs3-me-south-1.amazonaws.com%2Fcz-content-prod%2Fbanners%2Fwebsite%2F1736159549071-Cheezious---DEC---Dolmen-Mall-Branch---webbanner%5B1%5D%20(1).jpg&w=1920&q=75" alt="Image 5">
+           
+        </div>
+    </div>
+     <!-- Explore Menu Section -->
+     <section id="menu">
+        <h2>Explore Our Menu</h2>
+    </section>
+    <div id="sm">
+        
+        <div class="card">
+            <img src="https://files.oaiusercontent.com/file-2Bify27szX2GGpn1i8dVar?se=2025-01-12T06%3A58%3A51Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D54475c8b-c510-4289-b5aa-e2a46eaee469.webp&sig=vV8pxznOb1LIrT0NGpR88rFNKb/10M4dP0QeyYKX1NY%3D" alt="Card Image">
+            <div class="card-content">
+                <h3 class="card-title">Delicious Pizza</h3>
+                <p class="card-description">Try our mouth-watering pizza with fresh ingredients and a crispy crust.</p>
+                <a href="#" class="card-button">Order Now</a>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sm">
+        
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Card Image">
+            <div class="card-content">
+                <h3 class="card-title">Delicious Pizza</h3>
+                <p class="card-description">Try our mouth-watering pizza with fresh ingredients and a crispy crust.</p>
+                <a href="#" class="card-button">Order Now</a>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+
+   
+
+    <!-- Latest Blogs Section -->
+    <section id="blogs">
+        <h2>Latest Blogs</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3><a href="#">Cheezious: The Awami Brand That's All About Local Love</a></h3>
+                <p><a href="#">Read More</a></p>
+            </div>
+            <div class="card">
+                <h3><a href="#">Cheezious and Chill: The Perfect Movie Night Pairings</a></h3>
+                <p><a href="#">Read More</a></p>
+            </div>
+            <div class="card">
+                <h3><a href="#">How to Host the Ultimate Pizza Party with Cheezious</a></h3>
+                <p><a href="#">Read More</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers & News Section -->
+    <section id="offers">
+        <h2>Special Offers & News</h2>
+        <p>Subscribe now to receive exciting offers, promotions, and news directly to your inbox!</p>
+        <form id="subscribeForm">
+            <input type="email" id="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Cheezious Copyright © 2025. All Rights Reserved.</p>
+        <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        let index = 0; // Start from the first image
+        const slides = document.querySelectorAll('.slider img');
+        const totalSlides = slides.length;
+        
+        // Cart item count
+        let cartCount = 0;
+
+        // Function to change the slider image automatically every 3 seconds
+        function autoSlide() {
+            index++;
+            if (index >= totalSlides) {
+                index = 0; // Reset to the first image
+            }
+            updateSliderPosition();
+        }
+
+        // Update the slider position based on the current index
+        function updateSliderPosition() {
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Set an interval to move the slide every 3 seconds (3000ms)
+        setInterval(autoSlide, 3000);
+
+        // Function to simulate adding an item to the cart
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+        }
+    </script>
+
+</body>
+
+</html>
+ 

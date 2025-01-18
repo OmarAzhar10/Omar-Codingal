@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Built-in JavaScript Objects</title>
+</head>
+<body>
+
+    <h1>Built-in JavaScript Objects: Array, Date, Math</h1>
+    
+    <div id="output"></div>
+
+    <script>
+        
+        let numbers = [10, 20, 30, 40, 50];
+        let output = "<h2>Array Operations:</h2>";
+        output += "<p>Array of Numbers: " + numbers.join(", ") + "</p>";
+
+       
+        let maxNumber = Math.max(...numbers);
+        output += "<p>Maximum Number: " + maxNumber + "</p>";
+
+        let minNumber = Math.min(...numbers);
+        output += "<p>Minimum Number: " + minNumber + "</p>";
+
+        
+        output += "<p>Updated Array: " + numbers.join(", ") + "</p>";
+
+        let currentDate = new Date();
+        output += "<h2>Date Operations:</h2>";
+        output += "<p>Current Date: " + currentDate + "</p>";
+
+        output += "<p>Year: " + currentDate.getFullYear() + "</p>";
+        output += "<p>Month (0-11): " + currentDate.getMonth() + "</p>";  // Note: 
+        output += "<p>Day of the Month: " + currentDate.getDate() + "</p>";
+        output += "<p>Day of the Week (0-6, 0 is Sunday): " + currentDate.getDay() + "</p>";
+        output += "<p>Hours: " + currentDate.getHours() + "</p>";
+        output += "<p>Minutes: " + currentDate.getMinutes() + "</p>";
+        output += "<p>Seconds: " + currentDate.getSeconds() + "</p>";
+
+        
+        let randomNumber = Math.random();
+        output += "<h2>Math Operations:</h2>";
+        output += "<p>Random Number between 0 and 1: " + randomNumber + "</p>";
+
+        let roundedNumber = Math.round(4.7);
+        output += "<p>Rounded Number: " + roundedNumber + "</p>";
+
+        let randomInt = Math.floor(Math.random() * 100) + 1;
+        output += "<p>Random Integer between 1 and 100: " + randomInt + "</p>";
+
+       
+        document.getElementById("output").innerHTML = output;
+    </script>
+
+</body>
+</html>
